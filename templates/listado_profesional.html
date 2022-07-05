@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
 {% block title %}
-<title>Listado de personas</title>
+<title>Listado de profesionales</title>
 {% endblock title %}
 
 {% block texto_header %} 
-{% block texto_h1 %}<h1 class="container position-relative"> Listado de personas </h1> {% endblock texto_h1 %}
+{% block texto_h1 %}<h1 class="container position-relative"> Listado de profesionales </h1> {% endblock texto_h1 %}
 {% endblock texto_header %}
 
 {% block despues_del_header %}    
@@ -13,12 +13,9 @@
     <div class="row justify-content-center">
         <div class="col-xl-6">
             <div class="text-center text-black">
+                <p><a href = {% url 'crear_profesional' %}>Inscribir Profesional</a></p>
                 <p>
-                    <a href = {% url 'crear_persona' %}>Inscribir Persona</a>
-                </p>
-
-                <p>
-                    <form action={% url 'listado_persona' %}>   
+                    <form action={% url 'listado_profesional' %}>   
                         {{form}}
                         <button>Buscar</button>
                     </form>
@@ -28,10 +25,10 @@
     </div>
 </div>
 <p>
-    {% if listado_persona %}
+    {% if listado_profesional %}
     <ul>
-        {% for persona in listado_persona %}
-        <li class="container position-relative">{{persona}}</li>
+        {% for profesional in listado_profesional %}
+        <li class="container position-relative">{{profesional}}</li>
         {% endfor %}
     </ul>
     {% else %}
